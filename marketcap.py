@@ -21,9 +21,10 @@ while True:
     r = requests.get('https://api.coinmarketcap.com/v1/ticker/')
     newData = r.json()
     for counter, value in enumerate(newData):
-        if value["percent_change_1h"] > data[counter]["percent_change_1h"]:
+        if float(value["percent_change_1h"]) > float(data[counter]["percent_change_1h"]):
+            percentageIncrease = float(value["percent_change_1h"]) - float(data[counter]["percent_change_1h"])
             
-            print("{0} has increased by {1}".format(value["id"], value["percent_change_1h"]))
+            print("{0} has increased by {1}".format(value["id"], percentageIncrease))
     time.sleep(300)
     
     
