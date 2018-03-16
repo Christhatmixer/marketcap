@@ -80,9 +80,8 @@ while True:
                     check1hIncrease(value)
                 elif trackingSelection == "decrease":
                     check1hDecrease(value)
-                if float(value["percent_change_1h"]) > float(data[counter]["percent_change_1h"]):
-                    percentageIncrease = float(value["percent_change_1h"]) - float(data[counter]["percent_change_1h"])
-                    print("{0} has increased by {1} percent".format(value["id"], percentageIncrease))
+                else:
+                    print("No increase.")
         time.sleep(300)
     else:
         print("UPDATE")
